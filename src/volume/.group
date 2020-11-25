@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 source /dev/stdin < <(cli loader)
-source /dev/stdin < <(cli::import integrate .dir)
+source /dev/stdin < <(cli::import integrate .group)
 
 help() {
     cat << EOF
 Command
-    integrate area .dir
+    integrate volume .group
 
 Summary
     Commands for finding areas of shapes.
@@ -17,12 +17,12 @@ EOF
 }
 
 main() {
-    cli::export_import integrate .dir
-    cli::export integrate area
+    cli::export_import integrate .group
+    cli::export integrate volume
 }
 
-integrate::area::square() {
-    integrate::multiply $1 $1
+integrate::volume::cube() {
+    integrate::multiply $1 $1 $1
 }
 
 self_test() {

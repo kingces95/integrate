@@ -30,12 +30,7 @@ main() {
 }
 
 integrate::multiply() {
-    local expr='1'
-    for i in "$@"; do
-        expr+=" * $i"
-    done
-
-    echo "$expr" | bc -l
+    IFS='*' expr=$*; echo "$expr" | bc -l 
 }
 
 self_test() {
