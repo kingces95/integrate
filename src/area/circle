@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli::import integrate area .dir)
+
+help() {
+    cat << EOF
+Command
+    integrate area circle
+
+Arguments
+    --radius     [Required] : Radius of the circle.
+
+Global Arguments
+    --help -h        [Flag] : Show this message and exit.
+    --self-test      [Flag] : Runs a self test.
+EOF
+}
+
+main() {
+    echo $(integrate::multiply ${INTEGRATE_PI} $(integrate::area::square ${arg_radius}))
+}
+
+cli::load "$@"

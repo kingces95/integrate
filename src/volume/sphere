@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli::import integrate volume .dir)
+
+help() {
+    cat << EOF
+Command
+    integrate area circle
+
+Arguments
+    --radius     [Required] : Radius of the circle.
+
+Global Arguments
+    --help -h        [Flag] : Show this message and exit.
+    --self-test      [Flag] : Runs a self test.
+EOF
+}
+
+main() {
+    echo $(integrate::multiply '0.75' ${INTEGRATE_PI} \
+        $(integrate::volume::cube ${arg_radius}))
+}
+
+cli::load "$@"

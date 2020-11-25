@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli::import integrate volume .dir)
+
+help() {
+    cat << EOF
+Command
+    integrate volume cube
+
+Arguments
+    --side       [Required] : Length of a side.
+
+Global Arguments
+    --help -h        [Flag] : Show this message and exit.
+    --self-test      [Flag] : Runs a self test.
+EOF
+}
+
+main() {
+    echo $(integrate::volume::cube ${arg_side})
+}
+
+cli::load "$@"

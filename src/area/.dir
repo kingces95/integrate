@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli::import integrate .dir)
+
+help() {
+    cat << EOF
+Command
+    integrate area .dir
+
+Summary
+    Commands for finding areas of shapes.
+
+Global Arguments
+    --help -h        [Flag] : Show this message and exit.
+    --self-test      [Flag] : Runs a self test.
+EOF
+}
+
+main() {
+    cli::export_import integrate .dir
+    cli::export integrate area
+}
+
+integrate::area::square() {
+    integrate::multiply $1 $1
+}
+
+self_test() {
+    source /dev/stdin < <(cli_assert)
+}
+
+cli::load "$@"

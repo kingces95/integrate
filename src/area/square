@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli::import integrate area .dir)
+
+help() {
+    cat << EOF
+Command
+    integrate area square
+
+Arguments
+    --side        [Required] : Length of a side.
+
+Global Arguments
+    --help -h        [Flag] : Show this message and exit.
+    --self-test      [Flag] : Runs a self test.
+EOF
+}
+
+main() {
+    echo $(integrate::area::square ${arg_side})
+}
+
+cli::load "$@"
