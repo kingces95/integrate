@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli loader --library)
 source /dev/stdin < <(cli::import integrate .group)
 
 help() {
@@ -16,10 +16,6 @@ Global Arguments
 EOF
 }
 
-main() {
-    cli::export_import integrate .group
-    cli::export integrate volume
-}
 
 integrate::volume::cube() {
     integrate::multiply $1 $1 $1
@@ -27,6 +23,11 @@ integrate::volume::cube() {
 
 self_test() {
     source /dev/stdin < <(cli_assert)
+}
+
+main() {
+    cli::export_import integrate .group
+    cli::export integrate volume
 }
 
 cli::load "$@"
