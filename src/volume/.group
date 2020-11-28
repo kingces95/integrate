@@ -16,7 +16,6 @@ Global Arguments
 EOF
 }
 
-
 integrate::volume::cube() {
     integrate::multiply $1 $1 $1
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 source /dev/stdin < <(cli loader --library)
 source /dev/stdin < <(cli::import integrate .group)
+source /dev/stdin < <(cli::reference cli_assert)
 
 help() {
     cat << EOF
@@ -15,8 +16,6 @@ Global Arguments
     --self-test      [Flag] : Runs a self test.
 EOF
 }
-
-initialize() { return; }
 
 integrate::area::square() {
     integrate::multiply $1 $1
