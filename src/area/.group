@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-source /dev/stdin < <(cli loader --library)
-source /dev/stdin < <(cli::import integrate .group)
-source /dev/stdin < <(cli::reference cli_assert)
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli initialize)
+source /dev/stdin < <(cli export)
 
 help() {
     cat << EOF
@@ -17,17 +17,17 @@ Global Arguments
 EOF
 }
 
-integrate::area::square() {
-    integrate::multiply $1 $1
+main() {
+    integrate::area::square() {
+        math::multiply $1 $1
+    }
+
+    cli::export::source integrate .group
+    cli::export integrate area
 }
 
 self_test() {
     source /dev/stdin < <(cli_assert)
-}
-
-main() {
-    cli::export_import integrate .group
-    cli::export integrate area
 }
 
 cli::load "$@"

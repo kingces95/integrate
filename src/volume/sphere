@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 source /dev/stdin < <(cli loader)
-source /dev/stdin < <(cli::import integrate volume .group)
+source /dev/stdin < <(integrate volume .group)
 
 help() {
     cat << EOF
@@ -17,7 +17,7 @@ EOF
 }
 
 main() {
-    echo $(integrate::multiply '0.75' ${INTEGRATE_PI} \
+    echo $(math::multiply '0.75' ${CONSTANT_PI} \
         $(integrate::volume::cube ${arg_radius}))
 }
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-source /dev/stdin < <(cli loader --library)
+source /dev/stdin < <(cli loader)
+source /dev/stdin < <(cli initialize)
+source /dev/stdin < <(cli export)
 
 help() {
     cat << EOF
@@ -15,18 +17,12 @@ Global Arguments
 EOF
 }
 
-INTEGRATE_PI='3.14159'
-
-integrate::multiply() {
-    IFS='*' expr=$*; echo "$expr" | bc -l
+main() {
+    cli::export::import cli_math
 }
 
 self_test() {
     source /dev/stdin < <(cli_assert)
-}
-
-main() {
-    cli::export integrate
 }
 
 cli::load "$@"
