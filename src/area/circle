@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 source /dev/stdin < <(cli loader)
-source /dev/stdin < <(integrate area .group)
+source /dev/stdin < <(cli::import integrate area .group)
 
 help() {
     cat << EOF
@@ -17,7 +17,7 @@ EOF
 }
 
 main() {
-    echo $(math::multiply ${CONSTANT_PI} $(integrate::area::square ${arg_radius}))
+    echo $(math::multiply ${CONSTANT_PI} $(math::square ${arg_radius}))
 }
 
 cli::load "$@"

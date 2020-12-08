@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 source /dev/stdin < <(cli loader)
-source /dev/stdin < <(integrate area .group)
+source /dev/stdin < <(cli::import integrate area .group)
 
 help() {
     cat << EOF
@@ -17,7 +17,7 @@ EOF
 }
 
 main() {
-    echo $(integrate::area::square ${arg_side})
+    echo $(math::square ${arg_side})
 }
 
 self_test() {
