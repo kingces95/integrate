@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-source /dev/stdin < <(cli loader)
-cli::import cli initialize
-cli::import cli export
+source $(cli loader)
 
 help() {
     cat << EOF
@@ -17,12 +15,13 @@ Global Arguments
 EOF
 }
 
-main() {
+export() {
+    cli::export::import integrate .group
+
     math::square() {
         math::multiply $1 $1
     }
 
-    cli::export::import integrate .group
     cli::export math
 }
 

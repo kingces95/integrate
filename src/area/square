@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-source /dev/stdin < <(cli loader)
-cli::import integrate area .group
+source $(cli loader)
 
 help() {
     cat << EOF

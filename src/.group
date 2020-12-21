@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-source /dev/stdin < <(cli loader)
-cli::import cli initialize
-cli::import cli export
+source $(cli loader)
 
 help() {
     cat << EOF
@@ -17,8 +15,9 @@ Global Arguments
 EOF
 }
 
-main() {
+export() {
     cli::export::import cli_math
+    cli::export::import cli_constant
 }
 
 self_test() {
