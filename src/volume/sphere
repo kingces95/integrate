@@ -5,7 +5,7 @@ cli::import_group
 help() {
     cat << EOF
 Command
-    integrate area circle
+    ${CLI_PATH}
 
 Arguments
     --radius     [Required] : Radius of the circle.

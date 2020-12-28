@@ -5,7 +5,7 @@ cli::import_group
 help() {
     cat << EOF
 Command
-    integrate volume cube
+    ${CLI_PATH}
 
 Arguments
     --side       [Required] : Length of a side.

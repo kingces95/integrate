@@ -4,7 +4,7 @@ source $(cli loader)
 help() {
     cat << EOF
 Command
-    integrate .dir
+    ${CLI_PATH}
 
 Summary
     Command line tool for integrating shapes and volumes.

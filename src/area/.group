@@ -4,7 +4,7 @@ source $(cli loader)
 help() {
     cat << EOF
 Command
-    integrate area .group
+    ${CLI_PATH}
 
 Summary
     Commands for finding areas of shapes.
@@ -16,7 +16,7 @@ EOF
 }
 
 export() {
-    cli::export::import integrate .info
+    cli::export::import integrate .group
 
     math::square() {
         math::multiply $1 $1
