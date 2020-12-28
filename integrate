@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-cli shim --base "$(dirname ${BASH_SOURCE})/src" -- "$@"
+cli shim --name "${BASH_SOURCE##*/}" --base "$(dirname ${BASH_SOURCE})/src" -- "$@"
