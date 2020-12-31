@@ -5,7 +5,7 @@ cli::import_group
 help() {
     cat << EOF
 Command
-    ${CLI_PATH}
+    ${CLI_COMMAND}
 
 Arguments
     --side        [Required] : Length of a side.
@@ -22,7 +22,7 @@ main() {
 
 self_test() {
     source /dev/stdin < <(cli::import cli_assert)
-    assert::eq $(${CLI_PATH} --side 10) 100
+    assert::eq $(${CLI_COMMAND} --side 10) 100
 }
 
 cli::load "$@"
