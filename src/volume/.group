@@ -16,7 +16,7 @@ EOF
 }
 
 export() {
-    cli::export::import integrate .group
+    cli::export::import_parent_group
 
     math::cube() {
         math::multiply $1 $1 $1
