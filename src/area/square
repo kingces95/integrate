@@ -25,4 +25,4 @@ self_test() {
     assert::eq $(${CLI_COMMAND} --side 10) 100
 }
 
-cli::load "$@"
+cli::main "$@"

@@ -24,4 +24,4 @@ self_test() {
     source /dev/stdin < <(cli::import cli_assert)
 }
 
-cli::load "$@"
+cli::main "$@"

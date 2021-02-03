@@ -20,4 +20,4 @@ main() {
     echo $(math::multiply ${CONSTANT_PI} $(math::square ${arg_radius}))
 }
 
-cli::load "$@"
+cli::main "$@"
