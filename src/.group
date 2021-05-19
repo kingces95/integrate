@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $(cli loader)
+source $(cli loader ---exports)
 
 help() {
     cat << EOF
@@ -15,13 +15,13 @@ Global Arguments
 EOF
 }
 
-export() {
+main() {
     cli::export::import cli_math
     cli::export::import cli_constant
 }
 
 self_test() {
-    source /dev/stdin < <(cli::import cli_assert)
+    source /dev/stdin < <(cli::import cli-assert)
 }
 
 cli::main "$@"

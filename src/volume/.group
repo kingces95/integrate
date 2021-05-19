@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $(cli loader)
+source $(cli loader ---exports)
 
 help() {
     cat << EOF
@@ -15,7 +15,7 @@ Global Arguments
 EOF
 }
 
-export() {
+main() {
     cli::export::import_parent_group
 
     math::cube() {
@@ -26,7 +26,7 @@ export() {
 }
 
 self_test() {
-    source /dev/stdin < <(cli::import cli_assert)
+    source /dev/stdin < <(cli::import cli-assert)
 }
 
 cli::main "$@"

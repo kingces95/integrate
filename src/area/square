@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $(cli loader)
+source $(cli loader ---exports)
 cli::import_group
 
 help() {
@@ -21,7 +21,7 @@ main() {
 }
 
 self_test() {
-    source /dev/stdin < <(cli::import cli_assert)
+    source /dev/stdin < <(cli::import cli-assert)
     assert::eq $(${CLI_COMMAND} --side 10) 100
 }
 
