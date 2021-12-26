@@ -21,7 +21,7 @@ main() {
 }
 
 self_test() {
-    source /dev/stdin < <(cli::import cli-assert)
+    source /dev/stdin < <(cli::source cli-assert)
 }
 
 cli::main "$@"
